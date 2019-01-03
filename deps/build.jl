@@ -14,6 +14,8 @@ BinaryProvider.gen_unpack_cmd(joinpath(tmp, "katex.tar.gz"), tmp) |> run
 const katexdir = joinpath(tmp, "katex")
 const katexfontdir = joinpath(katexdir, "fonts")
 
+const fontdir = joinpath(_pkg_assets, "fonts")
+!isdir(fontdir) && mkdir(fontdir)
 for font in readdir(katexfontdir)
     mv(joinpath(katexfontdir, font), joinpath(_pkg_assets, "fonts", font), force = true)
 end
