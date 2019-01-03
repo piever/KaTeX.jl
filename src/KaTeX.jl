@@ -1,0 +1,3 @@
+module KaTeX
+
+end # module
