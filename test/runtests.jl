@@ -2,8 +2,9 @@ using KaTeX
 using Test
 
 @testset "deps" begin
-    for fn in ["katex.min.js", "katex.min.css", "auto-render.min.js"]
-        @test isfile(joinpath(@__DIR__, "..", "assets", fn))
+    @test KaTeX.assets == ["auto-render.min.js", "katex.min.css", "katex.min.js"]
+    for asset in KaTeX.assets 
+        @test isfile(joinpath(KaTeX.assetsdir, asset))
     end
 end
 
@@ -33,9 +34,10 @@ const katexfonts = [
 const exts =["ttf", "woff", "woff2"]
 
 @testset "katexfonts" begin
+    @test isdir(KaTeX.fontsdir)
     for font in katexfonts
         for ext in exts
-            @test isfile(joinpath(@__DIR__, "..", "assets", "fonts", join([font, ext], '.')))
+            @test isfile(joinpath(KaTeX.fontsdir, join([font, ext], '.')))
         end
     end
 end
