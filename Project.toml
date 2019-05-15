@@ -11,6 +11,7 @@ Observables = "510215fc-4207-5dde-b226-833fc4488ee2"
 WebIO = "0f1e0344-ec1d-5b48-a673-e5cf874b6c29"
 
 [compat]
+julia = "1"
 WebIO = ">=0.8"
 
 [extras]
